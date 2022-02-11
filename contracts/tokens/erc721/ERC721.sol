@@ -108,6 +108,7 @@ abstract contract ERC721 {
         address owner = ownerOf[tokenId];
 
         if (msg.sender != owner && !isApprovedForAll[owner][msg.sender]) revert NotApproved();
+        //notice - unless called by the owner OR approved for anyone to call it, this function will revert.
         
         getApproved[tokenId] = spender;
         
